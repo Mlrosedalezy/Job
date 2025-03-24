@@ -3,58 +3,39 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const cors = require('cors')
-require('dotenv').config({ path: './project.env' });
+const cors = require('cors');
+require('dotenv').config({ path: './Smskey.env' });
 
-// 验证请求头中的token
-const { secret } = require('./until/token')
-// 引入expressJWT，解析jwt
-const { expressjwt: expressJWT } = require("express-jwt");
-
-
+const shortMessageRoutes = require("./routes/ShortMessage").router; // 引入 ShortMessage 路由
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const manage = require('./routes/manage')
-const login = require('./routes/login')
+var loginRouter = require('./routes/Login'); // 引入 Login 路由
+var PcLoginRouter = require('./routes/PcLoing');
+var RoutingRouter = require('./routes/Routing.JS') // 确保文件名大小写一致
+var QrCodeRouter = require('./routes/QrCode.JS');
 
 var app = express();
 
-// view engine setup
+// 设置视图引擎
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors())
-
-// 验证token中间件，除了登录接口，其他接口都需要验证token
-app.use(
-  expressJWT({ secret: secret, algorithms: ["HS256"] })
-    // 验证白名单
-    .unless({ path: ['/login/login', '/login/checktoken','/login/refresh_token', '/login/telcode', '/login/altelcode'] })
-);
-// 错误处理中间件
-app.use(function (err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    // 处理 JWT 验证失败的情况
-    res.send({
-      status: 401,
-      message: 'token验证失败',
-    });
-  } else {
-    // 处理其他类型的错误
-    next(err);
-  }
-});
-
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/manage',manage)
-app.use('/login',login)
+app.use("/ShortMessage", shortMessageRoutes); // 使用 ShortMessage 路由
+app.use("/login", loginRouter); // 使用 Login 路由
+app.use("/pcLogin", PcLoginRouter);
+app.use("/routing", RoutingRouter); // 使用 Routing 路由
+app.use('/qrCode', QrCodeRouter); // 使用 QrCode 路由
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
