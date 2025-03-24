@@ -1,0 +1,11 @@
+.fuwu{
+    width: 100%;
+    height: 92.5vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+.grid{
+    margin-top: 1rem;
+}

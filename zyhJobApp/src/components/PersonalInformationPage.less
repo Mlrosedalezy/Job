@@ -1,0 +1,66 @@
+// 整体页面容器
+.PersonalInformationPage {
+
+    height: 100vh;
+    background-color: #f4f4f4; // 浅灰色背景
+  }
+  
+  
+  // 头像部分
+  .PersonalInformationPage-avatar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  
+   .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%; // 圆形头像
+      background-color: #fff; // 白色背景
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      color: #666; // 中灰色文字
+    }
+  }
+  
+  // 个人信息表单部分
+  .personalInformationPage-form {
+    border-radius: 8px; // 圆角
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // 阴影效果
+  
+   .ant-form-item {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+  
+      &:last-child {
+        margin-bottom: 0; // 最后一个表单项去掉下边距
+      }
+  
+      label {
+        width: 80px; // 标签宽度
+        font-size: 16px;
+        color: #333; // 深灰色文字
+      }
+  
+      input {
+        flex: 1;
+        border: none;
+        background-color: transparent;
+        font-size: 16px;
+        color: #666; // 中灰色文字
+  
+        &::placeholder {
+          color: #999; // 浅灰色占位符文字
+        }
+      }
+  
+      .ant-form-item-extra {
+        margin-left: auto;
+        color: #999; // 浅灰色箭头
+      }
+    }
+  }

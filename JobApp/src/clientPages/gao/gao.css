@@ -1,0 +1,7 @@
+body{
+    background-color: #F2F2F2;
+}
+.nav{
+    --rv-nav-bar-icon-color: #000;
+    --rv-nav-bar-text-color:#000
+}

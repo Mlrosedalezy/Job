@@ -1,0 +1,46 @@
+.main{
+    padding: 10px;
+    height: 89vh;
+    background-color: #F2F2F2;
+}
+.top{
+    margin-top: 20px;
+}
+.top_left{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.top_right{
+    width: 4.5rem;
+    height: 3.6rem;
+    text-align: center;
+    line-height: 3.6rem;
+    background-color: #fff;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    position: fixed;
+    right: 0;
+    top: 3rem;
+}
+.center{
+    margin-top: 5rem;
+    display: flex;
+}
+.center .center_item{
+    flex: 1;
+    text-align: center;
+}
+.center .center_item div{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: gray;
+    margin: 10px auto;
+}
+.bottom{
+    margin-top: 5rem;
+}
+
+

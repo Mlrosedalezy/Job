@@ -1,0 +1,66 @@
+
+.epass-page{
+    background-color: #f2f2f2;
+    .epass-header {
+        position: sticky;
+        top: 0;
+        background-color: #f2f2f2;
+        z-index: 1000; // 确保吸顶时在其他内容之上
+        .epass-nav {
+            margin-bottom: 16px;
+          }
+      
+    .epass-title{
+        display: flex;
+        height: 50px;
+        justify-content: space-around;
+        .epass-title-text{
+            width: 60%;
+            font-size: 20px;
+        }
+        .epass-title-more{
+            line-height: 50px;
+            font-size: 16px;
+            color: #3399FF;
+        }
+    }
+    }
+    
+
+    .epass-footer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #f2f2f2; /* 根据需要设置背景颜色 */
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 99; /* 确保底部元素在其他内容之上 */
+        .epass-footer-left{
+            width: 50%;
+            font-size: 16px;
+            color: #3399FF;
+            display: flex;
+            justify-content: space-around;
+            .epass-footer-input{
+                margin-right: 10px;
+            }
+        }
+        .epass-footer-right{
+            width: 50%;
+        }
+        .epass-footer-button{
+            margin-top: 5px;
+            width: 100%;
+            height: 40px;
+        }
+    }
+    .epass-body{
+        margin-top: 20px;
+        height: 100vh;
+    }
+  
+}
+

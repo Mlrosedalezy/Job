@@ -1,0 +1,217 @@
+body {
+  padding: auto 0;
+  margin: auto 0;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit; /* 继承 box-sizing */
+}
+.login-content {
+  height: 100%;
+}
+
+.login-container {
+  height: 100vh;
+  margin-top: 15px;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #F2F2F2;
+  box-shadow: 0 -10px 10px -5px rgba(0, 0, 0, 0.508);
+
+  // 默认情况下不居中显示
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+header {
+  width: 100%;
+  margin-left: 10px;
+  max-width: 400px;
+  margin-bottom: 40px;
+
+  .Property-btn {
+    margin-left: 50px;
+    background-color: transparent;
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  .Property-h1 {
+    
+    padding-left: 50px;
+    font-size: 24px;
+    margin: 0;
+  }
+
+  .Property-p {
+    margin-left: 50px;
+    margin-top: 2px;
+    font-size: 15px;
+    color: #888;
+  }
+}
+
+/* 手机 */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+  }
+
+  header {
+    max-width: 300px;
+  }
+
+  .login-form {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 10px;
+  }
+}
+
+/* 平板 */
+@media (min-width: 481px) and (max-width: 768px) {
+  .login-container {
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header {
+    max-width: 300px;
+    .Property-btn {
+      margin-left: 0; /* 移除左外边距 */
+    }
+
+    .Property-h1 {
+      padding-left: 0; /* 移除左内边距 */
+    }
+
+    .Property-p {
+      margin-left: 0; /* 移除左外边距 */
+    }
+  }
+
+  .login-form {
+    margin-left: 10px;
+    padding: 0 15px;
+  }
+}
+
+/* iPad 竖屏 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .login-container {
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header {
+    max-width: 300px;
+    .Property-btn {
+      margin-left: 0; /* 移除左外边距 */
+    }
+
+    .Property-h1 {
+      padding-left: 0; /* 移除左内边距 */
+    }
+
+    .Property-p {
+      margin-left: 0; /* 移除左外边距 */
+    }
+  }
+
+  .login-form {
+    margin-left: 10px;
+    padding: 0 15px;
+  }
+}
+
+/* iPad 横屏 */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .login-container {
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header {
+    max-width: 300px;
+    .Property-btn {
+      margin-left: 0; /* 移除左外边距 */
+    }
+
+    .Property-h1 {
+      padding-left: 0; /* 移除左内边距 */
+    }
+
+    .Property-p {
+      margin-left: 0; /* 移除左外边距 */
+    }
+  }
+
+  .login-form {
+    margin-left: 20px;
+    padding: 0 20px;
+  }
+}
+
+.login-form {
+  width: 100%;
+  margin-left: 10px;
+  max-width: 400px;
+
+  .ant-input {
+    margin-bottom: 10px;
+  }
+
+  .ant-checkbox-wrapper {
+    margin-left: 50px;
+    margin-bottom: 20px;
+  }
+
+  .ant-btn-primary {
+    width: 100%;
+    margin-bottom: 20px;   
+  }
+
+  .property-management-entry {
+    color: #1890ff;
+    text-decoration: none;
+  }
+
+  .GetTheVerificationCodeButton {
+    margin-top: 25px;
+    margin-left: 40px;
+    width: 75%;
+    line-height: 40px;
+    border-radius: 80px;
+    background-color: #14ACFF;
+    color: white;
+    border: 1px solid #14ACFF;
+  }
+
+  .MobilePhoneNumberInputBox {
+    margin-left: 40px;
+    width: 75%;
+    height: 40px;
+    border: 1px solid #eee;
+    padding-left: 20px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .return-user-entry-container {
+    text-align: center;
+    margin-top: 300px;
+
+    .return-user-entry {
+      color: #1890ff;
+      text-decoration: none;
+    }
+  }
+}

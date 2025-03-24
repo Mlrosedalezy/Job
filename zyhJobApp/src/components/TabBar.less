@@ -1,0 +1,31 @@
+/* src/components/TabBar.css */
+.tab-bar {
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border-top: 1px solid #e8e8e8;
+  // padding: 10px 0;
+  box-shadow: 0 -2px 5px #0000001a;
+  position: fixed; /* 固定定位 */
+  bottom: 0; /* 固定在底部 */
+  left: 0;
+  right: 0;
+  z-index: 999; /* 确保覆盖其他内容 */
+}
+
+.tab-item {
+  width: 200px;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  height: 100%;
+  line-height: 50px;
+  text-align: center;
+  border-right: 1px solid #f0f2f5;
+}
+
+.tab-item.active {
+  color: #1890ff;
+}
