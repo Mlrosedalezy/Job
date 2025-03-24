@@ -1,0 +1,51 @@
+.main {
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    background-color: rgba(220, 240, 235, 0.3);
+    backdrop-filter: blur(10px);
+    /* 背景模糊 */
+    display: flex;
+
+    .right {
+        flex: 1;
+        background: url("https://tcsmartpark.com/assets/parkLogin.c066a407.png") no-repeat;
+        background-size: cover;
+    }
+
+    form {
+        flex: 1;
+        padding: 15px;
+        text-align: center;
+
+        .type {
+            width: 100%;
+        }
+
+        position: relative;
+
+        .code {
+            //验证码
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+
+.login {
+    position: relative;
+    background: url(https://bpic.588ku.com/back_pic/05/85/48/305c7cb97a2eb52.jpg) no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}

@@ -1,0 +1,55 @@
+/* 整体容器 */
+.setUser-container {
+    height: 100vh;
+    background-color: #f4f4f4; /* 浅灰色背景 */
+    min-height: 100vh; /* 让容器至少占满整个视口高度 */
+  }
+  
+  /* 导航栏部分 */
+  .setUser-NavBar {
+    margin-bottom: 16px;
+  
+    // 这里假设NavBar组件有自己的样式，若需要调整可进一步设置
+   .ant-navbar { 
+      background-color: white;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  /* 内容区域 */
+  .setUser-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* 设置标题及输入框部分 */
+  .setUser-title {
+    width: 100%;
+    margin-bottom: 24px;
+  
+    // 表单相关样式
+   .ant-form {
+      width: 100%;
+    }
+  
+   .ant-form-item {
+      margin-bottom: 0;
+    }
+  
+   .ant-input {
+      border-radius: 4px;
+      height: 40px;
+    }
+  }
+  
+  /* 按钮部分 */
+  .setUser-btn {
+    width: 50%;
+    
+   .ant-btn {
+      font-size: 16px;
+      height: 48px;
+      border-radius: 4px;
+    }
+  }

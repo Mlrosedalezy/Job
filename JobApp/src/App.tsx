@@ -1,15 +1,16 @@
-import { Suspense } from 'react'
-// import './App.css'
-import routes from './routers/index'
+import React from 'react'
+import router from './routes'
 import { useRoutes } from 'react-router-dom'
+import './utils/index.ts'
 
 function App() {
-  const element = useRoutes(routes)
+  const element = useRoutes(router)
+
   return (
     <>
-      <Suspense fallback={<div>加载中...</div>}>
+      <React.Suspense fallback={<div>Loading...</div>}>
         {element}
-      </Suspense>
+      </React.Suspense>
     </>
   )
 }

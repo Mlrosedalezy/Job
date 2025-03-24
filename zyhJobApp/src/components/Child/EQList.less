@@ -1,0 +1,76 @@
+.door-list {
+    margin-bottom: 60px;
+    padding: 20px;
+  
+   .loading-text {
+      text-align: center;
+      font-size: 16px;
+      color: #666;
+    }
+  
+   .door-card {
+      margin-bottom: 20px;
+      padding: 15px;
+      position: relative;
+  
+     .door-checkbox {
+        margin-right: 10px;
+        /* 增加垂直对齐属性，确保与内容垂直居中对齐 */
+        align-self: center; 
+      }
+  
+     .door-content {
+        display: flex;
+        align-items: center;
+  
+       .door-qrcode {
+          width: 48px;
+          height: 48px;
+          margin-right: 15px;
+        }
+  
+       .door-details {
+          flex: 1;
+  
+         .door-name,
+         .door-location,
+         .door-type {
+            width: 100px;
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+  
+            span {
+              color: #666;
+            }
+          }
+        }
+      }
+  
+     .door-arrow {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 18px;
+        color: #999;
+      }
+  
+     .door-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+  
+       .edit-btn {
+          color: #1890ff;
+          margin-right: 10px;
+          border: 1px solid #1890ff;
+        }
+  
+       .delete-btn {
+          color: #f5222d;
+          border: 1px solid #f5222d;
+        }
+      }
+    }
+  }

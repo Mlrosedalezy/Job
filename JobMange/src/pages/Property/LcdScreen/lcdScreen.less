@@ -1,0 +1,381 @@
+.lcd {
+    height: 50rem;
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.top {
+    z-index: 1;
+    position: relative;
+    height: 5rem;
+    background: rgba(56, 72, 81, 0.6);
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+        display: flex;
+        align-items: center;
+        .logo {
+            width: 6rem;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            color: white;
+        }
+    }
+
+    .right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        // position: relative;
+
+        .data {
+            width: 50rem;
+        }
+
+        .u1 {
+            margin-right: 16rem;
+            color: #33ffff;
+            list-style: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            vertical-align: middle;
+            text-align: center;
+            align-items: center;
+
+        }
+
+        li {
+            width: 10rem;
+        }
+
+        .u2 {
+            margin-right: 16rem;
+            color: black;
+            font-size: 0.9rem;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            vertical-align: middle;
+            text-align: center;
+            align-items: center;
+        }
+
+        .show-time {
+            color: gray;
+            position: absolute;
+            right: 15px;
+            font-size: 1rem;
+        }
+    }
+}
+
+.main {
+    z-index: 1;
+    position: relative;
+    // width: 100%;
+    // height: 100%;
+    display: flex;
+
+    .right {
+        // flex: 3;
+        position: absolute;
+        right: 0;
+        .item {
+            width: 25rem;
+            background: rgba(56, 72, 81, 0.6);
+            height: 14rem;
+            margin: 1rem;
+            padding-left: 5px;
+
+            p {
+                font-size: 0.8rem;
+            }
+
+            .per {
+                font-size: 0.8rem;
+                line-height: 2rem;
+            }
+
+            #chart1 {
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+    }
+    .left {
+        // flex: 3;
+        position: absolute;
+        left: 0;
+        .item {
+            width: 25rem;
+            background: rgba(56, 72, 81, 0.6);
+            height: 14rem;
+            margin: 1rem;
+            padding-left: 5px;
+
+            p {
+                font-size: 0.8rem;
+            }
+
+            .per {
+                font-size: 0.8rem;
+                line-height: 2rem;
+            }
+
+            #chart1 {
+                width: 6rem;
+                height: 6rem;
+            }
+        }
+    }
+
+    .middle {
+        // flex: 6;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: -46.4rem;
+        .down {
+            display: flex;
+            .item {
+                width: 24rem;
+                background: rgba(56, 72, 81, 0.6);
+                height: 14rem;
+                margin: 1rem;
+            }
+        }
+    }
+}
+
+.notification-content {
+    height: 9.375rem;
+    /* 150px */
+    overflow: hidden;
+    position: relative;
+    color: #eee;
+}
+
+.notification-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.notification-list li {
+    padding: 0.625rem;
+    border-bottom: 1px solid white;
+    font-size: 0.875rem;
+}
+
+.notification-date {
+    float: right;
+    color: white;
+    font-size: 0.875rem;
+}
+
+.stats-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 0.8rem;
+}
+
+.stat-item:last-child {
+    margin-bottom: 0;
+}
+
+.stat-name {
+    color: white;
+    font-weight: bold;
+}
+
+.stat-value {
+    font-weight: bold;
+}
+
+// 门禁
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.user-info {
+    font-size: 0.8rem;
+    color: white;
+}
+
+.timestamps {
+    font-size: 0.7rem;
+    color: white;
+    margin-top: 0.25rem;
+    margin-bottom: 1.2rem;
+}
+
+.note-item {
+    display: flex;
+    line-height: 2.4rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.type-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.temperature {
+    margin-left: 0.25rem;
+}
+
+// 车辆
+.access-container {
+    width: 18.75rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.code {
+    font-size: 0.875rem;
+    color: white;
+    font-weight: 500;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: white;
+    margin-top: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    margin-right: -3rem;
+    line-height: 2.4rem;
+}
+
+.status-icon {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.status-text {
+    font-size: 0.875rem;
+    color: #333;
+}
+
+// 高空
+.high-alt-container {
+    width: 18.75rem;
+    padding: 0 0 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    .icons {
+        animation: start 1.5s infinite;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .icon-item {
+            font-size: 2rem;
+            color: red;
+            margin-top: 0.8rem;
+        }
+    }
+}
+@keyframes start {
+
+    0%{
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.75;
+    }
+
+    50%{
+        opacity: 0.5;
+    }
+    75%{
+        opacity: 0.25;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.throw-item {
+    div {
+        margin: 0.25rem 0;
+    }
+}
+
+.location {
+    font-size: 0.875rem;
+    color: white;
+}
+
+.device-code {
+    font-size: 0.7rem;
+    color: white;
+}
+
+.time {
+    font-size: 0.7rem;
+    color: whitesmoke;
+}
+
+// 通知
+.notification-list {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    height: 10rem;
+}
+
+.notification-date {
+    height: 2rem;
+    line-height: 2rem;
+    animation: scroll 3s infinite;
+
+    span {
+        float: right;
+    }
+}
+
+@keyframes scroll {
+
+    0%,
+    25% {
+        transform: translateY(0);
+    }
+
+    30%,
+    100% {
+        transform: translateY(-2rem);
+    }
+}

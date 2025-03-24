@@ -1,0 +1,35 @@
+.add-edit-form {
+    position: fixed; /* 固定定位 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000; /* 确保在其他内容之上 */
+    padding: 20px;
+    background-color: #fff; /* 白色背景 */
+    border-radius: 4px;
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  .ant-form-item-label > label::before {
+    display: inline-block;
+    margin-right: 4px;
+    color: #ff4d4f;
+    font-size: 14px;
+    font-family: SimSun, sans-serif;
+    line-height: 1;
+    content: '*';
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    button {
+      margin-left: 10px;
+    }
+  }
+}

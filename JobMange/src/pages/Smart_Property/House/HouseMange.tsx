@@ -1,28 +1,31 @@
 import { useState, useEffect, } from 'react';
 import './HouseMange.less'
 import { Base64 } from 'js-base64'
-import { houseManage } from '../../../api/api'
+import { houseManage, TreeManage } from '../../../api/api'
 import {
     Select,
     Button,
     Tree,
     Table,
-
 } from 'antd';
-import type { TableColumnsType, TableProps } from 'antd';
-import { CarryOutOutlined, CheckOutlined, FormOutlined } from '@ant-design/icons';
-import type { TreeDataNode } from 'antd';
+import type { TreeDataNode, TableColumnsType } from 'antd';
+import { CarryOutOutlined, CheckOutlined,  } from '@ant-design/icons';
 //箭头函数形式
 const HouseMange = () => {
-    const id = "67ca8ad17d72767a706b9395";
     useEffect(() => {
-        getData()
+        let cid = localStorage.getItem('cid') || ''
+        getData(cid)
     }, [])
     const [data, setData] = useState([])  //房屋信息
-    const getData = async () => {
-        const res = await houseManage({ id: Base64.encode(id) })
-        console.log(res.data.data)
-        setData(res.data.data)
+    const [treeList, setTreeList] = useState([])  //树形结构
+    const [treeData1, setTreeData1] = useState([])  //小区数据
+    const getData = async (cid:string) => {
+        const res = await houseManage({ id: cid })
+        let arr = await TreeManage({ id: cid })
+        // console.log(arr.data,res)
+        setTreeData1(arr.data.cname)
+        setTreeList(arr.data.data)
+        setData(res.data)
     }
 
     const [filterMes, setFilterMes] = useState({
@@ -36,8 +39,16 @@ const HouseMange = () => {
     ])
 
     // 树形选择
-    const treeData: TreeDataNode[] =
-        []
+    const treeData: TreeDataNode[] = Array.from(treeData1).map((item: any) => (
+        {
+            title: item.communityName,
+            key: item._id,
+            icon: <CarryOutOutlined />,
+            children: Array.from(treeList).map((i: any) =>(
+                {}
+            ))
+        }
+    ))
     // data[0].floorId.unitId.buildId.map((item)=>(
     //     {
     //         title:item.name,
@@ -110,7 +121,6 @@ const HouseMange = () => {
     //   ],
     // },
     //   ];
-    const [showLine, setShowLine] = useState<boolean>(true);
     const [showIcon, setShowIcon] = useState<boolean>(false);
     const [showLeafIcon, setShowLeafIcon] = useState<React.ReactNode>(true);
 
@@ -133,24 +143,23 @@ const HouseMange = () => {
     // 表格数据结构
     interface DataType {
         index: number;
-        xiaoquId:string
+        xiaoquId: string
         communityName?: string;
         buildName: string;
         unitName: string;
         floorName: string;
         houseName: string;
-        houseMaster:string;
-        sqrt:number;
-        tel:number;
-        isIn:boolean;
-        _id:string;
+        houseMaster: string;
+        sqrt: number;
+        tel: number;
+        isIn: boolean;
+        _id: string;
     }
-
     // 表格
     const columns: TableColumnsType<DataType> = [
         {
             title: '序号',
-            dataIndex: 'index', 
+            dataIndex: 'index',
             key: 'index',
             render: (index) => <span>{index + 1}</span>,
 
@@ -158,7 +167,7 @@ const HouseMange = () => {
         {
             title: "楼栋",
             key: 'buildName',
-            dataIndex:"buildName",
+            dataIndex: "buildName",
         },
         {
             title: '单元',
@@ -195,9 +204,9 @@ const HouseMange = () => {
             dataIndex: 'isIn',
             key: 'isIn',
             render: (text) => {
-                if(text){
+                if (text) {
                     return <span>已入住</span>
-                }else{
+                } else {
                     return <span>未入住</span>
                 }
             },
@@ -205,7 +214,7 @@ const HouseMange = () => {
         {
             title: '操作',
             key: 'action',
-         render: (text, record, index) =>{
+            render: (text, record, index) => {
                 return (
                     <div>
                         <Button size='small'>编辑</Button>
@@ -216,21 +225,20 @@ const HouseMange = () => {
 
         }
     ];
-
     // 表格数据渲染
-    const dataSource = Array.from<DataType>(data).map((item,index) => ({
+    const dataSource = Array.from<DataType>(data).map((item, index) => ({
         index: index,
-        xiaoquId:item.xiaoquId,
+        xiaoquId: item.xiaoquId,
         buildName: item.buildName,
         unitName: item.unitName,
         floorName: item.floorName,
         houseName: item.houseName,
         houseMaster: item.houseMaster,
         sqrt: item.sqrt,
-        tel:item.tel,
-        isIn:item.isIn,
-        _id:item._id,
-      }));
+        tel: item.tel,
+        isIn: item.isIn,
+        _id: item._id,
+    }));
 
     // const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 
@@ -331,7 +339,7 @@ const HouseMange = () => {
                 <div className='main_left'>
                     <p>房屋结构</p>
                     <Tree
-                        // showLine={showLine ? { showLeafIcon } : false}
+                        showLine={true}
                         showIcon={showIcon}
                         defaultExpandedKeys={['0-0-0']}
                         onSelect={onSelect}
@@ -340,10 +348,10 @@ const HouseMange = () => {
                 </div>
                 <div className='main_right'>
                     <Table
-                    rowKey="_id"
-                    // rowSelection={rowSelection}
-                     columns={columns} 
-                    dataSource={dataSource} />
+                        rowKey="_id"
+                        // rowSelection={rowSelection}
+                        columns={columns}
+                        dataSource={dataSource} />
                 </div>
             </div>
         </>
