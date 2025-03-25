@@ -56,12 +56,13 @@ function App() {
         }
 
         // 接收到消息触发
-        ws.current.onmessage = function (event) {
+        ws.current.onmessage = async function (event) {
             const data = JSON.parse(event.data);
+            console.log(data);
             
             if (data.type === 'message') {
                 setMsg((prev) => [...prev, data]);
-                addMessage(data)
+                await addMessage(data)
             }
         }
 

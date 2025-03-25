@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // axios基础配置
-const instance = axios.create({
+let instance = axios.create({
     baseURL: "http://127.0.0.1:3000/",
     timeout: 3000,
 })
@@ -20,10 +20,8 @@ instance.interceptors.request.use(
 axios.interceptors.response.use(
     function(response) {
         // 对响应数据做点什么
-        const {config,data} = response
-        
-        console.log(config,data);
-        
+        let {config,data} = response
+
         // 把response的data返回给客户端, 不需要可以删除下面1句代码
         return data
     },
@@ -32,5 +30,3 @@ axios.interceptors.response.use(
         return Promise.reject(error)
     }
 )
-
-export default instance

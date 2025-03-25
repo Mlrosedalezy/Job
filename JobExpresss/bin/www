@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('jobafter:server');
 var http = require('http');
+var socket = require('../socket/server');  // 引入socket模块
 
 /**
  * Get port from environment and store in Express.
@@ -20,7 +21,7 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-
+socket.onopen(server) // 将socket绑定到http服务器上
 /**
  * Listen on provided port, on all network interfaces.
  */

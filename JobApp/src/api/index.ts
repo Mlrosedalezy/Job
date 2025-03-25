@@ -4,7 +4,7 @@ import instance from "../utils/instance"
 export const clientLogin = (data:object)=>{
     return instance({
         method:'post',
-        url:'/login/login',
+        url:'/logins/login',
         data
     })
 }
@@ -13,7 +13,7 @@ export const clientLogin = (data:object)=>{
 export const clientGetyzm = (data:object)=>{
     return instance({
         method:'post',
-        url:'/login/getyzm',
+        url:'/logins/getyzm',
         data:data
     })
 }
@@ -22,7 +22,7 @@ export const clientGetyzm = (data:object)=>{
 export const clientYzmLogin = (data:object)=>{
     return instance({
         method:'post',
-        url:'/login/verifyyzm',
+        url:'/logins/verifyyzm',
         data:data
     })
 }
@@ -30,7 +30,7 @@ export const clientYzmLogin = (data:object)=>{
 // 人脸识别接口(传入图片base64)
 export const face = (b64:string) => {
     return instance({
-        url: '/login/facelogin',
+        url: '/logins/facelogin',
         data: {
             "b64": b64,
         },
@@ -42,15 +42,17 @@ export const face = (b64:string) => {
 export const delPhone = (data:object)=>{
     return instance({
         method:'post',
-        url:'/login/delTel',
+        url:'/logins/delTel',
         data:data
     })
 }
 // 刷新token
 export const refreshToken = (token:string)=>{
+    console.log(token);
+    
     return instance({
         method:'post',
-        url:'/login/refresh',
+        url:'/logins/refresh',
         headers:{
             refreshToken:token
         }

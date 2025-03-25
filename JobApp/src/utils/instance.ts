@@ -50,11 +50,12 @@ instance.interceptors.response.use(async (response) => {
     let { data } = response
     console.log('响应数据',data);
     
-    if (data.code === 401) {
+    if (data.status === 401) {
       // 删除过期的短token
       localStorage.removeItem('AccessToken')
       // 短token过期，进行刷新
       await refresh()
+      
       // 重新发起请求
       return instance(response.config)
     }

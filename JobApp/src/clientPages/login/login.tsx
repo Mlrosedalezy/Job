@@ -28,6 +28,8 @@ function App() {
     const onFinish1 = async (values: object) => {
         if (select === 0) {        // 密码登录
             await clientLogin(values).then(res => {
+                console.log(res.data.code);
+                
                 if (res.data.code === 200) {
                     setToken(res.data.data);
                     setVisible(true)

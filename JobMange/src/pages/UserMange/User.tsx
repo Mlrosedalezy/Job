@@ -82,7 +82,7 @@ const User: React.FC = () => {
                         okText="Yes"
                         cancelText="No"
                     >
-                        <button className='del' disabled={msg.permiss < 1 && msg.permiss != 0 ? false : true} style={{ color: msg.permiss < record.Permiss && record.Permiss!=0 ? "red" : "gray" }}>删除</button>
+                        <button className='del' disabled={msg.permiss < 1  ? false : true} style={{ color: msg.permiss < record.Permiss && record.Permiss!=0 ? "red" : "gray" }}>删除</button>
                     </Popconfirm>
                     <button disabled={msg.permiss < record.Permiss ? false : true} style={{ color: msg.permiss < record.Permiss ? "409EFF" : "gray" }} onClick={() => handleEdit(record)}>编辑</button>
                 </Space>
@@ -144,6 +144,7 @@ const User: React.FC = () => {
         getData()
     }
     const handleDel = async (data: any) => {  //删除用户列表
+        // console.log(data);
         await userDel({ id: data.id })
         getData()
         message.success('删除成功')

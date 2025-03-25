@@ -30,6 +30,8 @@ const App = () => {
         pageSize:6
       }      
       const res = await getUser(params);
+      console.log(res.data);
+      
       if(res.data.data.length === 0){
         setHasMore(false); // 没有更多数据了
       }else{
